@@ -1,0 +1,28 @@
+ctrl U          turn mouse back
+ctrl pagedown   switch between files
+ctrl b          hide side column
+ctrl j          hide terminal
+ctrl /+         zoom
+ctrl enter      turn to next line
+ctrl X          delete whole line
+
+
+ctrl G          turn to line
+ctrl Tab        turn between files
+ctrl enter      turn to next line
+ctrl U          turn mouse back
+ctrl pagedown   switch between files
+
+ctrl P          global search for file
+
+ctrl shift K    delete whole line
+ctrl X          delete whole line
+
+alt up          move code up
+alt down        move code down
+alt shift up    copy code up
+alt shift down  copy code down
+
+ctrl b          hide side column
+ctrl j          hide terminal
+ctrl /+         zoom
