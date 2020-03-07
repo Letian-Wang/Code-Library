@@ -11,7 +11,7 @@
             print(element, end = '')            # end ='' means no newline character('\n')          
 
 # strip
-    line.rstrip('\n')                           #  strips characters from the right side
+    line.rstrip('\n')  # \n or \r or \r\n       #  strips characters from the right side
     errors.append("Line "+ line.rstrip('\n'))
 
 # format change
