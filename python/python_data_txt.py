@@ -25,6 +25,10 @@
 # character in a line
     line[5]
 
+# Get a specific-line data
+    import linecache
+    line_1 = linecache.getline(directory, 2)
+
 # search a character in a line
     mylines[0].find("e")                        # search character "e" from the beginning, one character at a time.
     mylines[0].find("e", 10, 20)                # Search between 11th and 21th character   

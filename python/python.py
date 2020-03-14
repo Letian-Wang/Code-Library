@@ -22,6 +22,13 @@
     file = 'data.mat'
     data = sio.loadmat(file)
 
+# string slice
+    PATH = path1 + path2
+    PATH = os.path.join(path1, path2)
+
+# Get a specific-line data
+import linecache
+line_1 = linecache.getline(directory, 2)
 
 # calculate vertical foot
     def footP(p1,p2,p0):
