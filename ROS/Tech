@@ -1,0 +1,7 @@
+rqt_bag         # play bag
+rqt_plot        # plot bag
+rosparam set /
+
+rostopic -b file.bag -p /topic > file.txt           # output data in rosbag into txt
+
+rostopic record -a 

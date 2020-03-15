@@ -26,4 +26,4 @@ os.makedirs(dirName)
 var = "This is a string"
 varName = 'var'
 s= locals()[varName]
-s
+

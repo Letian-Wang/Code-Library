@@ -1,0 +1,6 @@
+ros::spinOnce();                # call callback function, then run the code behind
+
+
+
+# how to write launch file
+https://blog.csdn.net/hookie1990/article/details/53909013

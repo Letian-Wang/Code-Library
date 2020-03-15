@@ -3,6 +3,15 @@
     plt.scatter(data[:,:,0], data[:,:,1], s=8, marker=".", color = 'red') # s means size
     plt.show()
 
+# run time
+    import datetime
+    starttime = datetime.datetime.now()
+    #long running
+    #do something other
+    endtime = datetime.datetime.now()
+    print (endtime - starttime).seconds
+
+
 # 3d plot scatter
     import matplotlib.pyplot as plt 
     from mpl_toolkits.mplot3d import Axes3D ## 3d plot
@@ -10,6 +19,9 @@
     ax = fig.add_subplot(111, projection='3d')
     ax.scatter(data[:,0,0], data[:,0,1], data[:,0], s=2, marker=".")
     plt.show()
+
+# find the minimum index
+    mini_index = res.index(min(res)) 
 
 # numpy basic
     import numpy as np
@@ -70,6 +82,7 @@ line_1 = linecache.getline(directory, 2)
             res[i]= resp 
         return res, refinds
 
+# locally find a closest point in crv1 for every point in crv2
     def curveMatch(crv1,crv2):
         # find a closest point in crv1 for every point in crv2
         # return the a list of index of matched crv1, same length with crv2
@@ -92,8 +105,31 @@ line_1 = linecache.getline(directory, 2)
             res[j] = min_ind
         return res
 
+# globally find a closest point in crv1 for every point in crv2
+    def curveMatch_global(crv1,crv2):
+        # find a closest point in crv1 for every point in crv2
+        # return the a list of index and coresponding distance of matched crv1, same length with crv2
+        # data structure: 
+        #   crv1 and crv2 are (n,2) array
+        #   record: (2,n) list -- min_distance and min_ind
+
+        lencrv2 = len(crv2)
+        record = [[0 for i in range(lencrv2)] for j in range(2)]
+        for j,p in enumerate(crv2):
+            min_dis = distance(crv1[0],p)
+            min_ind = 0
+            for i,s in enumerate(crv1):
+                if distance(s,p) < min_dis :
+                    min_dis = distance(s,p)
+                    min_ind = i
+            record[0][j] = min_dis
+            record[1][j] = min_ind
+
+        return record
+
+# get the distance between 2 points
     def distance(a,b):
-    """
-    euclid distance between two points
-    """
-    return np.sum((a - b)**2)**0.5
+        """
+        euclid distance between two points
+        """
+        return np.sum((a - b)**2)**0.5
