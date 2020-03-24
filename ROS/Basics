@@ -1,0 +1,12 @@
+建立工作空间
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+catkin_make
+
+编译
+cd ~/catkin_ws
+catkin_make
+source ~/catkin_ws/devel/setup.bash
+
+创建package
+Catkin_create_pkg test2 roscpp rospy std_msgs

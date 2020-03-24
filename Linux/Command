@@ -1,0 +1,170 @@
+https://gitlab.com/MSCSIM/vehicle_motion_generation/decision-planning_sample-based/decision-planning_ncds-sample.git
+
+git@gitlab.com:MSCSIM/vehicle_motion_generation/decision-planning_sample-based/decision-planning_ncds-sample.git
+
+cmake链接：https://blog.csdn.net/xierhacker/article/details/79445339
+常规安装cmake
+外部构建：在make文件中
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+制定安装位置
+cmake -DCMAKE_INSTALL_PREFIX=/…………… ..
+
+安装、删除包 经典教程 以openCV为例
+https://blog.csdn.net/lukaslong/article/details/81386376
+
+内部构建：
+cmake .
+make
+
+git checkout  … 换分支
+git diff 看区别
+git log
+git branch -l
+
+pip install = apt get install = aptitude install
+
+搜索并解决报错很重要
+ask ubuntu
+stackoverflow
+
+~/.bashrc 是环境变量，里面添加source，可以重复调用source
+
+source setup.bash 将路径刷到环境变量中
+
+pwd = printing workding directory
+
+catkin_make编译系统
+
+apt show pkg_name 查看package版本
+
+终端中可以使用shell，shell负责将用户命令翻译成操作系统指令，bash是一种shell
+
+
+
+source在当前环境shell下读取并执行脚本
+bash sh在子shell中读取并执行脚本
+
+PATH环境变量，在输入变量时系统回去查找PATH里面记录的路径
+查看环境变量：
+env export
+添加path
+export PATH="$PATH:home/letian/catkin_ws/build/lanelet2_core"
+
+sudo update-alternatives --config python 改变python版本
+alias python=/usr/bin/python2.7
+
+dpkg -i package.deb 本地安装
+apt-get install package 在线安装
+
+dpkg -r package 删除软件
+apt-get remove package
+aptitude remove package
+
+dpkg -P package 删除软件并清除配置
+apt-get remove package –-purge
+apptitude purge package
+
+apt-get autoremove 卸载所有自动安装且不再使用的软件包
+
+sudo apt-get remove
+sudo apt-get
+sudo autoremove
+
+
+source /opt/ros/kinetic/setup.bash
+source /opt/ros/kinetic/setup.bash
+source /opt/ros/kinetic/setup.bash
+
+source /opt/ros/kinetic/setup.bash
+source /opt/ros/kinetic/setup.bash
+source /opt/ros/kinetic/setup.bash
+
+手动source，页面比较干净
+终端开小窗
+
+vim：
+I/o 进入插入模式
+esc进入command模式
+v 进入可视模式
+：x 保存
+：q 退出
+y copy
+yy copy a line
+p paste
+d cut
+dd cut a line
+A 行末
+I 行首
+u 撤销
+
+tar -czvf name.tar.gz dir/ 压缩 c：compress
+
+tar -xzvf name.tar.gz -C /path 解压 x：extarct
+
+unzip test.zip
+unzip -d /temp test.zip
+
+rm -rf …  recursively remove ** forcely
+rm -d … remove empty dirls
+chmod改变权限
+chmod 777 ./bash.sh
+echo输出
+grep关键词搜索
+find / -name
+ls |grep ***
+
+
+cp *.txt **.txt
+cp *.txt backup
+
+sudo apt-get install ros-kinetic-desktop-full
+包的安装路径
+一般的deb包（包括新立得或者apt-get下载的）都在/usr/share。自己下载的压缩包或者编译的包，有些可以选择安装目录，一般放在/usr/local/，也有在/opt的。    
+
+LI CHENRAN
+YANG GAO
+ZHAO TING
+
+
+
+
+
+rospack depends1 package_name
+
+package.xml:
+description
+maintainer
+licence
+dependency
+
+python read_osm_map.py 启动
+= rosrun read_osm_map.py
+printenv | grep ROS
+
+df -h 硬盘使用情况 按G
+top 显示进程信息
+
+dpkg -l |grep
+dpkg -i asdf.deb 安装
+
+rospack depends1 beginner
+
+
+find . -name "read_osm_map*"
+
+ps -A | grep ***
+kill PID
+kill -9 PID
+
+卸载anaconda
+https://www.cnblogs.com/onemorepoint/p/7453766.html
+安装anaconda
+https://blog.csdn.net/haeasringnar/article/details/82079943
+
+
+

@@ -1,6 +1,6 @@
 # plot scatter
     import matplotlib.pyplot as plt 
-    plt.scatter(data[:,:,0], data[:,:,1], s=8, marker=".", color = 'red') # s means size
+    plt.scatter(data[:,0], data[:,1], s=8, marker=".", color = 'red') # s means size
     plt.show()
 
 # run time

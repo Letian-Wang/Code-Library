@@ -47,6 +47,7 @@
 			istr >> a;
 			istr >> b;
 
+
 ifstream fin;
 fin.open(index_number.c_str());
 string interact_index;

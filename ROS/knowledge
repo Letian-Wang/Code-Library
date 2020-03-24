@@ -4,3 +4,9 @@ ros::spinOnce();                # call callback function, then run the code behi
 
 # how to write launch file
 https://blog.csdn.net/hookie1990/article/details/53909013
+
+echo '1' > parameter.txt        # replace
+echo '1' >> parameter.txt       # append
+awk
+sed
+

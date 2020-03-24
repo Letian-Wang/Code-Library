@@ -1,0 +1,50 @@
+STL 标准模板库
+可变长数组，链表，字典
+#include<algorithm>
+
+从小到大
+Sort() nlog(n) 排序算法
+Sort(数组名+n1，数组名+n2) 从小到大
+数组中下表为【n1,n2】左闭右开，n1=0的话可以省略
+e.g 
+	int a[] = [15,4,3,9,7,2,6]
+	sort(a,a+3);  结果：[]
+
+从大到小
+Sort（数组名+n1, 数组名+n2，greater<T>()）
+e.g.	
+	int a[]={15,4,3,9,7,2,6}
+	sort(a+1, a+4, greater<int>())
+	//结果：15，9，4，3，7，2，6
+
+自定义排序规则
+Sort（数组名+n1, 数组名+n2, 排序规则结构名()）
+	struct 结构名
+{
+	Bool operator( const T & a1, const T& a2) const{
+		//若a1应该在a2前面，则返回true
+		//否则返回false
+}
+}
+e.g.
+	#include <iostream>
+	#include <cstring>
+	#include <algorithm>
+ 
+STL可以在排好序的数组上进行二分查找
+	Binary_search	二分查找之
+	Lower_bound	二分查找下限
+	Upper_bound	二分查找上限
+
+Binary_search(输入吗+n1，数组名+n2，值)
+在[n1, n2 )范围内查找等于“值”的元素，找到则返回true，否则返回false
+
+任意T类型中，任意规则：
+Binary_search(数组名+n1，数组名+n2，值，排序规则结构名（）)
+查找时使用的规则需要和排序时使用的一致
+
+
+T * Lower_bound（数组名+n1, 数组名+n2，值）
+
+
+

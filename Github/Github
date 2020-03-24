@@ -1,0 +1,39 @@
+Create repository
+Git init
+Git add .
+Git status
+Git commit -m “注释”
+Git remote add origin “地址”   添加远程地址
+Git fetch origin master 先把代码拉下来，防止冲突
+Git pull origin master  直接覆盖
+Git push -u origin master  上传
+关于代码冲突处理
+https://blog.csdn.net/u012150179/article/details/14047183
+
+ 
+版本控制
+https://blog.csdn.net/Chengzi_comm/article/details/51673802
+reset soft、hard、mixed差别：
+https://juejin.im/post/5d15ec535188255ee8176a57
+Git reflog master 查看所有变更记录
+Git log 看commit历史
+Git status 看未commit信息，以及与github网站差别，红色是未add，绿色是未commit
+Git reset --hard “commit版本” 撤销commit，并删除更改的内容
+Git reset --soft “commit版本” 撤销commit，保留更改的内容，可以再次commit
+Git diff 工作区与暂存区差异
+Git rebase -i asdf876876asdf78 合并commit
+https://juejin.im/entry/5ae9706d51882567327809d0#comment
+
+
+修改以后，git status，显示红色
+Add以后，显示绿色
+
+
+Git branch 查看branch列表
+Gti checkout -b “branchname” 创建并切换版本
+Git checktout “branch_name” 切换版本
+Git merge <name> 合并分支（在master里，填branch，将master推至branch）
+Git branch -d <name> 删除分支
+
+
+ 

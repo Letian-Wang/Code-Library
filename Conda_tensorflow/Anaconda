@@ -1,0 +1,23 @@
+
+1.	显卡驱动：先sudo apt update系统配置 additional drivers里面改更新
+Nvidia-smi查看驱动，nvidia
+
+2.	Conda install tensorflow-gpu 装tensorflow
+
+Conda create -n tf14 python=3.6重新建立conda环境
+Conda activate tf14 切换到tf14环境
+Conda install tensorflow-gpu==1.14.0 在tf14环境里安装tensorflow
+
+Python train.py
+
+Conda install matplotlib
+Conda install scikit-learn
+
+
+
+Conda unsintall tensorflow-gpu
+Conda install cudatoolkit=9.2
+
+先装anaconda 再装显卡驱动，cuda，cudnn，tensorflow
+
+
