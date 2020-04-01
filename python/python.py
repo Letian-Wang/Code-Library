@@ -1,7 +1,27 @@
+# Error Bar
+    plt.yticks(fontsize=20)
+    plt.errorbar(x, time_mean_all, yerr=time_std_all,fmt='s', marker='s', ms=12, ecolor=[234/255,120/255,52/255],color=[95/255,100/255,255/255],elinewidth=16,capsize=20)
+
 # plot scatter
     import matplotlib.pyplot as plt 
     plt.scatter(data[:,0], data[:,1], s=8, marker=".", color = 'red') # s means size
     plt.show()
+
+# plot skill
+    plt.title('TITLE',fontsize='large') 
+    plt.subplot(141)                            # set subplot
+    plt.xlim(0,4)                               # Set y range
+    plt.ylim(0,4)                               # Set x range
+    plt.xticks([])                              # Cancel x comment
+    plt.yticks([])                              # Cancel y comment
+    plt.grid()                                  # Turn on the grid
+
+# plot bar
+    val_ls = [np.random.randint(100) + i*20 for i in range(7)]
+    scale_ls = range(7)
+    plt.bar(scale_ls, val_ls)
+    index_ls = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+    plt.xticks(scale_ls,index_ls)  ## 可以设置坐标字
 
 # run time
     import datetime
@@ -11,6 +31,12 @@
     endtime = datetime.datetime.now()
     print (endtime - starttime).seconds
 
+# remove file and directory
+    os.makedirs(dirName)        # Create dir                          
+    os.remove()                 # remove a file.=
+    os.rmdir()                  # remove an empty directory.
+    shutil.rmtree()             # delete a directory and all its contents.
+
 
 # 3d plot scatter
     import matplotlib.pyplot as plt 
@@ -19,6 +45,34 @@
     ax = fig.add_subplot(111, projection='3d')
     ax.scatter(data[:,0,0], data[:,0,1], data[:,0], s=2, marker=".")
     plt.show()
+
+# Dictionary
+    thisdict = {
+        "brand": "Ford",
+        "model": "Mustang",
+        "year": 1964
+    }
+    print(thisdict)
+    print(thisdict["model"])
+    for x in thisdict:
+        print(thisdict[x])
+    for x in thisdict.values():
+        print(x)
+    for x,y in thisdict.items():
+        print(x,y)
+# list
+    list_a = []
+    currentDirectory = os.getcwd()
+    with open((os.path.join(currentDirectory, "data.txt")), "r") as filestream:
+        for line in filestream:
+            currrentline = line.split(' ')
+            list_a.append(int(currrentline[0]))
+
+    list = [1,2,4,8]
+    for i in list:
+
+    list = ["le","tian","wang"]
+    for name in list:
 
 # find the minimum index
     mini_index = res.index(min(res)) 
