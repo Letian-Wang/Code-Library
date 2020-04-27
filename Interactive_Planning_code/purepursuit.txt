@@ -1,0 +1,5 @@
+1. give goal point:
+    give goal point:                        purePursuit.goal_point.emplace_back()
+    give CurrentPoint:                      purePursuit.CurrentPoint
+2. run function:
+    purePursuit.FindCurrentLocation()       ---- saved in ---->  purePursuit.real_path

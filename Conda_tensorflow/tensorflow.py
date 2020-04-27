@@ -145,7 +145,7 @@ import time
             print(step, cost_val, W_val, b_valu)
 
 # Specify CPU or GPU, save and load model
-    os.environ["CUDA_VISIBLE_DEVICES"]='0'
+    # os.environ["CUDA_VISIBLE_DEVICES"]='0'
     with tf.device('/cpu:0'):
         x_data = np.array([[0,0],[0,1],[1,0],[1,1]], dtype=np.float32)
         y_data = np.array([[0],[1],[1],[0]], dtype=np.float32)
@@ -169,6 +169,7 @@ import time
         predicted = tf.cast(hypothesis > 0.5, dtype=tf.float32)
         accuracy = tf.reduce_mean(tf.cast(tf.equal(predicted, Y), dtype=tf.float32))
         saver = tf.train.Saver()
+        # Run
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
             for step in range(10001):
@@ -182,6 +183,7 @@ import time
             h, c, a = sess.run([hypothesis, predicted, accuracy], feed_dict={X: x_data, Y: y_data})
             print("\nHypothesis: ", h, "\nCorrect: ", c, "\nAccuracy: ", a)
 
+        # restore model
         sess = tf.Session()
         saver = tf.train.Saver()
         step = 6000

@@ -1,27 +1,5 @@
-# Error Bar
-    plt.yticks(fontsize=20)
-    plt.errorbar(x, time_mean_all, yerr=time_std_all,fmt='s', marker='s', ms=12, ecolor=[234/255,120/255,52/255],color=[95/255,100/255,255/255],elinewidth=16,capsize=20)
-
-# plot scatter
-    import matplotlib.pyplot as plt 
-    plt.scatter(data[:,0], data[:,1], s=8, marker=".", color = 'red') # s means size
-    plt.show()
-
-# plot skill
-    plt.title('TITLE',fontsize='large') 
-    plt.subplot(141)                            # set subplot
-    plt.xlim(0,4)                               # Set y range
-    plt.ylim(0,4)                               # Set x range
-    plt.xticks([])                              # Cancel x comment
-    plt.yticks([])                              # Cancel y comment
-    plt.grid()                                  # Turn on the grid
-
-# plot bar
-    val_ls = [np.random.randint(100) + i*20 for i in range(7)]
-    scale_ls = range(7)
-    plt.bar(scale_ls, val_ls)
-    index_ls = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
-    plt.xticks(scale_ls,index_ls)  ## 可以设置坐标字
+# Create variable by name
+    variable = locals()["name"]
 
 # run time
     import datetime
@@ -36,15 +14,6 @@
     os.remove()                 # remove a file.=
     os.rmdir()                  # remove an empty directory.
     shutil.rmtree()             # delete a directory and all its contents.
-
-
-# 3d plot scatter
-    import matplotlib.pyplot as plt 
-    from mpl_toolkits.mplot3d import Axes3D ## 3d plot
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    ax.scatter(data[:,0,0], data[:,0,1], data[:,0], s=2, marker=".")
-    plt.show()
 
 # Dictionary
     thisdict = {
@@ -74,7 +43,7 @@
     list = ["le","tian","wang"]
     for name in list:
 
-# find the minimum index
+# find the minimum index in a list
     mini_index = res.index(min(res)) 
 
 # numpy basic
