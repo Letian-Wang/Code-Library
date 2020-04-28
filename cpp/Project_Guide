@@ -7,18 +7,6 @@ Cmake .. 生成makefile
 Make 生成可执行文件
 终端中./文件名 运行	
 
-CMakeLists:
-Basics IBM: https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/index.html
-Common command: https://elloop.github.io/tools/2016-04-10/learning-cmake-2-commands
-更多变量： https://blog.csdn.net/netnote/article/details/4051620
-file command and function : https://elloop.github.io/tools/2016-04-11/learning-cmake-3-function-macro
-find package: https://blog.csdn.net/haluoluo211/article/details/80559341
-			  https://blog.csdn.net/bytxl/article/details/50637277
-use third-party library: https://cloud.tencent.com/developer/article/1446788
-use self-created library: https://juejin.im/post/5a6f3cda6fb9a01c9d32231c
-构建链接库： https://blog.csdn.net/wks19891215/article/details/51002615
-查找链接库： http://www.yeolar.com/note/2014/12/16/cmake-how-to-find-libraries/
-ADD_SUBDIRECTORY :https://blog.csdn.net/xierhacker/article/details/80945449
 
 #include <vector>
 

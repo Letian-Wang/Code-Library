@@ -1,11 +1,12 @@
 (int) round(a)                      // int and round should be used at the same time
 use atan2() rather than atan()      // atan2() returns all 4 quadrants, atan() returns 1,4 quadrants
   
+#define PI 3.1415926535897932384
+
 // angle operation
   void to_degree(double &angle)
 {
-    if (angle > 2*PI)
-        angle = angle - PI;
+    angle = fmod((fmod(angle, 2*PI) + 2*PI), 2*PI);
     angle = angle / PI * 180;
 }
 
