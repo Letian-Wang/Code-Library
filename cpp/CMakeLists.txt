@@ -2,6 +2,7 @@ CMAKE_MINIMUM_REQUIRED( VERSION 3.0)
 PROJECT(hello)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_LIST_DIR}/include)          # where to find head file
 LINK_DIRECTORIES("lib")                                         # where to find libraries
+LINK_DIRECTORIES(${CMAKE_CURRENT_LIST_DIR}/lib)                 # where to find libraries
 AUX_SOURCE_DIRECTORY(. DIR_SRCS)                                # give source file to variable
 ADD_EXECUTABLE(hello ${DIR_SRCS})                               # generate excutable file
 TARGET_LINK_LIBRARIES(main Test)                                # link libraries to executable file
@@ -23,7 +24,9 @@ CMAKELIST 4 个模块：
 创建库文件: ADD_LIBRARY()
 查找库文件：find_package()
 
-
+库：
+自己的库 (add_library, add_subdirectory) (自己最好就别搞库了, 用file全搞定)
+别人的库 (find_package)
 
 CMakeLists:
 Basics IBM: https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/index.html
