@@ -4,10 +4,131 @@ gif: http://louistiao.me/posts/notebooks/save-matplotlib-animations-as-gifs/
 3d plot: https://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html
 color map : https://matplotlib.org/tutorials/colors/colormaps.html
 
+# plot color block
+    https://blog.csdn.net/coder_Gray/article/details/81867639
+
+# plot Color
+    color RGB: https://tug.org/pracjourn/2007-4/walden/color.pdf
+    color bar: https://www.jianshu.com/p/d97c1d2e274f
+    color map: https://matplotlib.org/examples/color/colormaps_reference.html
+    x = np.random.rand(100000)
+    y = np.random.rand(100000)
+    plt.scatter(x,y,c=y,cmap='Wistia')
+    plt.colorbar()
+
+# Get rgb from cmap with a value
+    rgb = tuple(cm.get_cmap(cmap)(x)[np.newaxis, :, :3][0][INDEX])
+
+    from matplotlib import cm
+    import numpy as np
+    def value_to_rgb_list(value_list, diverge_power, color_map, shift='tail'):
+        ''' 
+        input: 
+            value_list: list of value in any range 
+            diverge_power: the larger, the more scattered are the colors
+            shift: head, center, tail. where the colors are distributed in colormap
+        output: list of rgb in colormap
+
+        >>> scatter_color_list = value_to_rgb_list(cost_list, 2, 'Wistia','center')
+        '''
+        def normalization(x):
+            x = np.array(x)
+            temp = x/(x.sum()+0.0000001)
+            temp = temp.tolist()
+            while( np.array(temp).sum() < 0.999):
+                temp = np.array(temp)
+                temp = temp/(temp.sum()+0.0000001)
+                temp = temp.tolist()
+            return temp
+        def value_to_rgb(val, cmap_name):
+            """ 
+                Input：cmap_name, val range: [0,1]
+                Rerutn: rgb on that cmap
+
+                >>> value_to_rgb('YlOrBr', 1)
+                (0.4, 0.1450980392156863, 0.02352941176470588)
+            """
+            RGB_Index = int(val * 299)
+            x = np.linspace(0.0, 1.0, 300)
+            rgb = tuple(cm.get_cmap(cmap_name)(x)[np.newaxis, :, :3][0][RGB_Index])
+            return rgb
+        def shift_color(val_list, shift='center'):
+            ''' shift to be distributed around 0.5 '''
+            assert shift in ['head', 'center', 'tail'], "function shift_color(): data are not shifted correctly" 
+            CLAMP = lambda x, low, up: min(max(x, low), up) 
+            MID = lambda lst:(min(lst) +  max(lst))/2
+            mid = MID(val_list)
+            if shift == 'center': target = 0.5
+            if shift == 'head': target = 0.25
+            if shift == 'tail': target = 0.75
+            shift = mid - target
+            shifted_list=[]
+            for val in val_list: shifted_list.append(CLAMP(val - shift, 0, 1)) 
+            return shifted_list
+        value_list = np.power(np.array(value_list), diverge_power)
+        color_list = [i for i in normalization(value_list)]
+        color_list = shift_color(color_list, shift)
+        print("shift: ",color_list)
+        color_rgb_list = []
+        for color_value in color_list: color_rgb_list.append(value_to_rgb(color_value, color_map))
+        return color_rgb_list
+
+    def value_to_rgb(val, cmap_name):
+        """ 
+            Input：cmap_name, val range: [0,1]
+            Rerutn: rgb on that cmap
+
+            >>> value_to_rgb(1, 'YlOrBr')
+            (0.4, 0.1450980392156863, 0.02352941176470588)
+        """
+        RGB_Index = int(val * 299)
+        x = np.linspace(0.0, 1.0, 300)
+        rgb = tuple(cm.get_cmap(cmap_name)(x)[np.newaxis, :, :3][0][RGB_Index])
+        return rgb
+    
+    def shift_val(val_list, shift='center'):
+        ''' 
+            shift to be distributed around 0.25, 0.5, 0.75 
+            val_list: values in [0,1]
+            shift: head, center, tail. where the colors are distributed in colormap
+            >>>  color_list = shift_val(color_list, shift)
+        '''
+        assert shift in ['head', 'center', 'tail'], "function shift_val(): data are not shifted correctly" 
+        CLAMP = lambda x, low, up: min(max(x, low), up) 
+        MID = lambda lst:(min(lst) +  max(lst))/2
+        mid = MID(val_list)
+        if shift == 'center': target = 0.5
+        if shift == 'head': target = 0.25
+        if shift == 'tail': target = 0.75
+        shift = mid - target
+        shifted_list=[]
+        for val in val_list: shifted_list.append(CLAMP(val - shift, 0, 1)) 
+        return shifted_list
+
+    # self defined
+    def Cost_to_RGB(color_value):
+        ''' Red to Green color '''
+        color_value = color_value*2*218
+        red = 241-min(color_value,218)
+        green = 23+max((color_value-218),0)
+        blue = 23
+        return (red/255, green/255, blue/255)
+
 # General
     plt.figure(1, figsize=(15,7.5))
     plt.subplot(111)
+    plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=0.2, hspace=0.25)
+
+    # 使用familiary Python切片语法指定子图位置和范围：https://zhuanlan.zhihu.com/p/75276939
+    grid = plt.GridSpec(2, 3, wspace=0.4, hspace=0.3)
+    plt.subplot(grid[0, 0])
+    plt.subplot(grid[0, 1:])
+    plt.subplot(grid[1, :2])
+    plt.subplot(grid[1, 2])
+
+
     plt.title('AAA\n AAA', fontsize = 20)
+    plt.suptitle('AAA \n AAA', fontsize=25)     # super title (main title）
 
     plt.scatter(x, y, s = 10, marker=".", color = 'red', label = 'label1')
     plot(x,y2,color='green', marker='o', linestyle='dashed', linewidth=1, markersize=6, label = 'label2')
@@ -32,7 +153,7 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     plt.text(5.125,-0.75,'MDN Groundtruth',fontsize=15)
 
     plt.grid(True)                                  # Turn on the grid
-    plt.savefig(image_name)
+    plt.savefig(image_name,dpi=800)
 
 # create legend according to color
     #用label和color列表生成mpatches.Patch对象，它将作为句柄来生成legend
@@ -42,7 +163,7 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     patches = [ mpatches.Patch(color=color[i], label="{:s}".format(labels[i]) ) for i in range(len(color)) ] 
     ax=plt.gca()
     ax.legend(handles=patches, loc=1, bbox_to_anchor=(1.008,1.1), ncol=1) #生成legend
-    
+
 # class plot
     fig = plt.figure()
     ax = fig.add_subplot(121)
