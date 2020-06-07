@@ -77,7 +77,7 @@ git branch -u o/master foo                  # 将foo跟踪到o/master
 git push <remote> <place>  
 git push origin master                      # 切到本地仓库中的“master”分支，获取所有的提交，再到远程仓库“origin”中找到“master”分支，将远程仓库中没有的提交记录都添加上去，搞定之后告诉我。
 git push                                    # push当前分支到它的upstream分支上， 也可在后加origin branch名指定branch，要求必须有对应branch
-                                            # 对于新分支需要在后加-u origin branch显式指定branch，并指定upstream
+git push -u origin new_branch_name          # 对于新分支需要在后加-u origin branch显式指定branch，并指定upstream, 本地和远程branch名称需要一致
 git push origin <source>:<destination>      # 指定了push的来源和目的地, 自动创建新destination, source可以时任何git能识别的位置
 git push origin :foo                        # 删除远程以及本地仓库中的分支
 
