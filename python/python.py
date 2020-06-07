@@ -4,6 +4,41 @@
 # Create variable by name
     variable = locals()["name"]
 
+# unzip and move file
+    # extract data
+    path_cats_and_dogs = getcwd() + "/cats-and-dogs.zip"
+    if not os.path.exists(getcwd() + '/tmp'):
+        os.mkdir(getcwd() + '/tmp')
+    else:
+        shutil.rmtree(getcwd() + '/tmp')
+    local_zip = path_cats_and_dogs
+    zip_ref = zipfile.ZipFile(local_zip, 'r')
+    zip_ref.extractall(getcwd()+'/tmp')
+    zip_ref.close()
+    print(len(os.listdir('/tmp/PetImages/Cat/')))
+    print(len(os.listdir('/tmp/PetImages/Dog/')))
+
+    os.path.getsize()
+    shutil.copyfile(origin_file, destination_file)
+
+# csv 
+    csv_reader = csv.reader(training_file, delimiter=',')
+    next(csv_reader)
+    for line in csv_reader:
+
+# JSON
+    with open(getcwd() + '/sarcasm.json', 'r') as f:
+        datastore = json.load(f)
+    sentences = []
+    labels = []
+    urls = []
+    for item in datastore:
+        sentences.append(item['headline'])
+        labels.append(item['is_sarcastic'])
+
+# print
+    print(val, end=" ") # end with " " not "\n"
+
 # Assert
     def double(x):
         assert isinstance(x, int), "The input to double(x) must be an integer"
@@ -252,7 +287,6 @@
     #  [ 8 10 12]]
     print x * 2
 
-
 # load data .mat
     import scipy.io as sio
     file = 'data.mat'
@@ -263,8 +297,8 @@
     PATH = os.path.join(path1, path2)
 
 # Get a specific-line data
-import linecache
-line_1 = linecache.getline(directory, 2)
+    import linecache
+    line_1 = linecache.getline(directory, 2)
 
 # calculate vertical foot
     def footP(p1,p2,p0):
@@ -275,7 +309,6 @@ line_1 = linecache.getline(directory, 2)
         x = ( p12[0]**2*p0[0] + p1[0]*p12[1]*(p2[1] - p0[1]) + p2[0]*p12[1]*(p0[1]-p1[1]) )/len12
         y = ( p12[1]**2*p0[1] + p1[1]*p12[0]*(p2[0] - p0[0]) + p2[1]*p12[0]*(p0[0]-p1[0]) )/len12
         return np.array((x,y))
-
 
 # find the closet point of 2 curve
     def closestPoint(curv1,curv2):

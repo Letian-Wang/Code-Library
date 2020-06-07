@@ -189,12 +189,12 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     plt.show()
 
 # Tricks
-fig, axes = plt.subplots(nrows=1, ncols=2)
-for ax in axes:
-    ax.plot(x, y, 'r')
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
-    ax.set_title('title')
+    fig, axes = plt.subplots(nrows=1, ncols=2)
+    for ax in axes:
+        ax.plot(x, y, 'r')
+        ax.set_xlabel('x')
+        ax.set_ylabel('y')
+        ax.set_title('title')
 
 # Error Bar
     plt.yticks(fontsize=20)
@@ -216,13 +216,22 @@ for ax in axes:
     plt.show()
 
 # plot
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-X, Y, Z = axes3d.get_test_data(0.1)
-ax.plot_wireframe(X, Y, Z, rstride=5, cstride=5)
-ax.view_init(30, angle)                 # set angle, first is along the y axis, second is along z axis
-plt.draw()
-plt.pause(.001)
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    X, Y, Z = axes3d.get_test_data(0.1)
+    ax.plot_wireframe(X, Y, Z, rstride=5, cstride=5)
+    ax.view_init(30, angle)                 # set angle, first is along the y axis, second is along z axis
+    plt.draw()
+    plt.pause(.001)
+
+# plot and not block the code
+    plt.show(block=False)
+    print("---Plot graph finish---")
+    plt.show()
+
+    plt.draw()
+    print("---Plot graph finish---")
+    plt.show()
 
 
 # # rotate a 3d figure
