@@ -30,7 +30,7 @@ np.hsplit()
 np.vstack((a,b))                                # Stack arrays in sequence vertically (row wise)
 np.hstack((a,b))                                # Stack arrays in sequence horizontally (column wise)
 np.stack((a,b),axis = 0)                        # Join a sequence of arrays along a new axis. 
-                                                # add new axis in the same poition of parameter axis
+                                                # add new axis in the same position of parameter axis
                                                 # if axis=0 it will be the first dimension and if axis=-1 it will be the last dimension.
 np.dstack                                       # for array less than 3 dimension, stack arrays in sequence depth wise (along third axis)
 
@@ -60,4 +60,9 @@ arr2 = np.random.rand(2,4)                      # random number between 0 and 1
 arr = np.random.randint(0,10, (3,4))
 index = np.argwhere(arr < 5)
 
+# numpy format conversion
+    a.dtype                                  # check format
+    a = np.array(a).astype('float')          # convert formatarr2.dtype
 
+# expand dimension: (10000, 28, 28) -> (10000, 28, 28, 1))
+    a = np.expand_dims(a, axis=3)
