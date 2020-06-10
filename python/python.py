@@ -1,6 +1,19 @@
 # Module
     https://www.runoob.com/python/python-modules.html
 
+# Pass in parameter in terminal
+    import argparse
+    parser = argparse.ArgumentParser(description='manual to this script')
+    parser.add_argument('--gpus', type=str, default = None)
+    parser.add_argument('--batch-size', type=int, default=32)
+    args = parser.parse_args()
+    print args.gpus
+    print args.batch_size
+
+    python script.py --bool-val=0 # args.bool_val=True
+    python script.py --bool-val=False # args.bool_val=True
+    python script.py --bool-val=     # args.bool_val=什么都不写False
+
 # Create variable by name
     variable = locals()["name"]
 
