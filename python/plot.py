@@ -6,6 +6,55 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
 
 # plot color block
     https://blog.csdn.net/coder_Gray/article/details/81867639
+    def block_heatmap(data, xtick=None, ytick=None, xlabel=None, ylabel=None, title=None, cmap = None):
+        '''
+        >>>
+        import random
+        # Generate data
+        data = []
+        for i in range(8):
+            temp = []
+            for j in range(5):
+                k = random.randint(0,100)
+                temp.append(k)
+            data.append(temp)
+        # labels
+        xLabel = ['A','B','C','D','E']
+        yLabel = ['1','2','3','4','5']
+        title = "Likelihood heatmap"
+        # d = block_heatmap(data, xLabel, yLabel, title)
+        block_heatmap(data, cmap='Blues')
+        '''
+        from matplotlib import pyplot as plt
+        from matplotlib import cm
+        from matplotlib import axes
+        x_num = len(data[0])
+        y_num = len(data)
+        fig = plt.figure(figsize=(0.75*x_num, 0.75*y_num))
+        ax = fig.add_subplot(111)
+        # set ticks
+        if xtick == None: xtick = [str(i+1) for i in range(x_num)]
+        if ytick == None: ytick = [str(i) for i in range(y_num,0,-1)]
+        ax.set_yticks(range(len(ytick)))
+        ax.set_yticklabels(ytick)
+        ax.set_xticks(range(len(xtick)))
+        ax.set_xticklabels(xtick)
+        # set label
+        if xlabel != None: ax.set_xlabel(xlabel)
+        if ylabel != None: ax.set_ylabel(ylabel)
+        # choose cmap
+        if cmap == None: cmap = plt.cm.hot_r
+        # title
+        if title != None: plt.title(title)
+        # Draw seperate line
+        for i in range(x_num):
+            plt.vlines(i+0.5, -0.5, -0.5 + y_num, colors = "grey", linestyles = "solid")        # 画直线
+        for i in range(y_num):
+            plt.hlines(i+0.5, -0.5, -0.5 + x_num, colors = "grey", linestyles = "solid")        # 画直线
+        # Draw
+        im = ax.imshow(data, cmap=cmap)
+        plt.colorbar(im)
+        plt.show()
 
 # plot Color
     color RGB: https://tug.org/pracjourn/2007-4/walden/color.pdf
@@ -233,7 +282,6 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     print("---Plot graph finish---")
     plt.show()
 
-
 # # rotate a 3d figure
     from mpl_toolkits.mplot3d import axes3d
     import matplotlib.pyplot as plt
@@ -273,6 +321,3 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     z = np.sin(xx**2 + yy**2) / (xx**2 + yy**2)
     h = plt.contourf(x,y,z)
     plt.show()
-
-
-

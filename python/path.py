@@ -6,11 +6,6 @@ wb.save(os.path.join(currentDirectory, "lt", "pass","cost.xls"))
 # path
 directory = os.path.dirname(__file__) + "/dir2/file.txt"
 
-# splice string
-a = 1
-ego_file_name = 'ego_%d.txt' % a            # % is the occupation string, 
-                                            # %s : string   %d : int    %f : float
-
 # create directory
 if not os.path.exists(dirName):
     os.mkdir(dirName)

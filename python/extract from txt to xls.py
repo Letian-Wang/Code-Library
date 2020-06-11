@@ -1,7 +1,7 @@
 import os
 from xlwt import Workbook 
 import string
-
+# extract data from txt and write to xls
 currentDirectory = os.getcwd()
 #os.chdir('/home/varun')
 global flag

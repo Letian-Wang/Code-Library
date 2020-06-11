@@ -81,7 +81,6 @@
             if pat.search(line) != None:                            # Search for the pattern. If found,
             print(line)                           
 
-
 # Split string into word             
     str = 'Hello! I am Robot. This is a Python example.'
     splits = str.split()
