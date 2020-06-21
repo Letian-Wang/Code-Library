@@ -407,3 +407,9 @@
 # little function:
     CLAMP = lambda x, low, up: min(max(x, low), up) 
     MID = lambda lst:(min(lst) +  max(lst))/2
+
+# Save list into excel
+df = pd.DataFrame(all_new_long_likelihood)
+writer = pd.ExcelWriter(index + '_new.xlsx', engine='xlsxwriter')
+df.to_excel(writer,sheet_name='welcome',index=False)
+writer.save()
