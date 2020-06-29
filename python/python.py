@@ -382,6 +382,11 @@
         # data structure: 
         #   crv1 and crv2 are (n,2) array
         #   record: (2,n) list -- min_distance and min_ind
+        def distance(a,b):
+            """
+            euclid distance between two points
+            """
+            return np.sum((a - b)**2)**0.5
 
         lencrv2 = len(crv2)
         record = [[0 for i in range(lencrv2)] for j in range(2)]
@@ -394,7 +399,26 @@
                     min_ind = i
             record[0][j] = min_dis
             record[1][j] = min_ind
+        return record
 
+# globally find a closest element in lst1 for every element in lst2
+    def LstMatch_global(lst1,lst2):
+        # find a closest element in lst1 for every element in lst2
+        # return the a list of index and coresponding error of matched lst1, same length with lst2
+        # data structure: 
+        #   lst1 and lst2 are (n,1) array
+        #   record: (2,n) list -- min_error and min_ind
+        lenlst2 = len(lst2)
+        record = [[0 for i in range(lenlst2)] for j in range(2)]
+        for j,p in enumerate(lst2):
+            min_error = abs(lst1[0] - p)
+            min_ind = 0
+            for i,s in enumerate(lst1):
+                if abs(s - p) < min_error :
+                    min_error = abs(s - p)
+                    min_ind = i
+            record[0][j] = min_error
+            record[1][j] = min_ind
         return record
 
 # get the distance between 2 points

@@ -169,6 +169,8 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=0.2, hspace=0.25)
 
     # 使用familiary Python切片语法指定子图位置和范围：https://zhuanlan.zhihu.com/p/75276939
+    # subplot: https://www.zhihu.com/question/21953954
+    # plt/ax/fig: https://zhuanlan.zhihu.com/p/93423829
     grid = plt.GridSpec(2, 3, wspace=0.4, hspace=0.3)
     plt.subplot(grid[0, 0])
     plt.subplot(grid[0, 1:])
