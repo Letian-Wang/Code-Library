@@ -65,6 +65,21 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     plt.scatter(x,y,c=y,cmap='Wistia')
     plt.colorbar()
 
+# color bar
+    ''' match the size of graph '''
+    import matplotlib.pyplot as plt
+    from mpl_toolkits.axes_grid1 import make_axes_locatable
+    import numpy as np
+    plt.figure()
+    ax = plt.gca()
+    im = ax.imshow(np.arange(100).reshape((10,10)))
+    # create an axes on the right side of ax. The width of cax will be 5%
+    # of ax and the padding between cax and ax will be fixed at 0.05 inch.
+    divider = make_axes_locatable(ax)
+    cax = divider.append_axes("right", size="5%", pad=0.05)
+    plt.colorbar(im, cax=cax)
+
+
 # Get rgb from cmap with a value
     rgb = tuple(cm.get_cmap(cmap)(x)[np.newaxis, :, :3][0][INDEX])
 
@@ -266,6 +281,14 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     ax.scatter(data[:,0,0], data[:,0,1], data[:,0], s=2, marker=".")
     plt.show()
 
+# scatter with gradual color
+    import matplotlib.pyplot as plt
+    cm = plt.cm.get_cmap('RdYlBu')
+    xy = range(20)
+    z = xy
+    sc = plt.scatter(xy, xy, c=z, vmin=0, vmax=20, s=35, cmap=cm)
+    plt.colorbar(sc)
+    plt.show()
 # plot
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
