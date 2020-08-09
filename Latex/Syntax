@@ -1,0 +1,50 @@
+Item:
+        \begin{itemize}
+        \item[标志] 条目
+        \end{item}
+    example:
+        \begin{itemize}
+        \item 第一条测试
+        \item[$\rightarrow$] 第二条测试
+        \end{itemize}
+
+Bold:
+    \textbf{...}
+
+Tilt:
+    \textit{...}
+
+Image:
+    \begin{figure}[H]
+    \includegraphics[width=1\textwidth]{image}
+    \caption{caption}
+    \label{fig:2}
+    \end{figure}
+
+Reference:
+    Fig. ~\ref{fig:1}
+
+Section:
+    \section{Citations}
+    \subsection{Analysis of Policy}
+
+Generate png for quick compilation and development:
+    \usepackage{epstopdf}
+    \epstopdfDeclareGraphicsRule{.pdf}{png}{.png}{convert #1 \OutputFile}
+    \DeclareGraphicsExtensions{.png,.pdf}
+
+List of all the figure used in the thesis:
+    \listoffigures
+
+Inserts a horizontal space whose length is 1cm. Other LATEX units can be used with this command.
+    \hspace{1cm}
+    \vspace{1cm}
+Inserts a blank space that will stretch accordingly to fill the space available.
+    \hfill
+    \vfill
+
+
+\texttt{}  pure text
+
+\newline
+\newpage

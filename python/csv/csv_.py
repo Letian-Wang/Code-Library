@@ -15,7 +15,7 @@ with open('read.csv') as csv_file:
             line_count += 1
     print('Processed {} lines.'.format(line_count))
 
-''' Read into dictionary CSV (first line is the names)'''
+''' CSV Read into dictionary (first line is the names)'''
 import csv
 with open('read.csv', mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file)

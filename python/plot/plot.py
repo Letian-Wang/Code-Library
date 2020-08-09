@@ -79,6 +79,10 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     cax = divider.append_axes("right", size="5%", pad=0.05)
     plt.colorbar(im, cax=cax)
 
+# font
+    csfont = {'fontname':'Times New Roman'}
+    plt.title('title',**csfont)
+    plt.show()
 
 # Get rgb from cmap with a value
     rgb = tuple(cm.get_cmap(cmap)(x)[np.newaxis, :, :3][0][INDEX])
@@ -289,6 +293,7 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     sc = plt.scatter(xy, xy, c=z, vmin=0, vmax=20, s=35, cmap=cm)
     plt.colorbar(sc)
     plt.show()
+
 # plot
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -345,4 +350,25 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     xx, yy = np.meshgrid(x, y, sparse=True)
     z = np.sin(xx**2 + yy**2) / (xx**2 + yy**2)
     h = plt.contourf(x,y,z)
+    plt.show()
+
+# plot sphere 
+    import matplotlib.pyplot as plt
+    from mpl_toolkits.mplot3d import Axes3D
+    import numpy as np
+
+    fig = plt.figure(1, figsize=(5.5,5))    
+    ax = fig.add_subplot(111, projection='3d')
+
+    u = np.linspace(0, np.pi/2, 100)
+    v = np.linspace(0, np.pi/2, 100)
+    x = np.outer(np.cos(u), np.sin(v))
+    y = np.outer(np.sin(u), np.sin(v))
+    z = np.outer(np.ones(np.size(u)), np.cos(v))
+
+    ax.plot_surface(x, y, z, linewidth=0.0, color=(0.8, 0.8, 0.8), cstride=1, rstride=1)
+    ax.view_init(45, 45)                 # set angle, first is along the y axis, second is along z axis
+    ax.set_xlabel('x-label')
+    ax.set_ylabel('y-label')
+    ax.set_zlabel('z-label')
     plt.show()

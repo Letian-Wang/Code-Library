@@ -28,3 +28,8 @@ start, end = ax.get_xlim()
 ax.xaxis.set_ticks(np.arange(start, end,1)) 
 ax.yaxis.tick_right()
 plt.show()
+
+# axis, ticks
+ax.set_xticks(position)  ## setting tick position
+ax.set_xticklabels(label, fontsize=18)  ## setting tick labels and fontsize
+ax.tick_params(axis="y", labelsize=18)  # set fontsize only
