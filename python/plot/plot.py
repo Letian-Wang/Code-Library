@@ -79,11 +79,6 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     cax = divider.append_axes("right", size="5%", pad=0.05)
     plt.colorbar(im, cax=cax)
 
-# font
-    csfont = {'fontname':'Times New Roman'}
-    plt.title('title',**csfont)
-    plt.show()
-
 # Get rgb from cmap with a value
     rgb = tuple(cm.get_cmap(cmap)(x)[np.newaxis, :, :3][0][INDEX])
 

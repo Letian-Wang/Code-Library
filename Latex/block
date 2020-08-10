@@ -1,0 +1,44 @@
+三线表
+    \usepackage{booktabs}
+    \begin{table}[htbp] 
+        \caption{\label{tab:test}示例表格} 
+        \begin{tabular}{lcl} 
+        \toprule 
+        。。 & 。。 & 。。 \\ 
+        \midrule 
+        。。 & 。。 & 。。 \\ 
+        。。 & 。。 & 。。 \\ 
+        。。 & 。。 & 。。 \\ 
+        \bottomrule 
+        \end{tabular} 
+    \end{table}
+
+subtable
+    \begin{table}[h]
+    \begin{subtable}[h]{\textwidth}
+    \centering
+     \label{tab:test}
+     \begin{tabular}{cccccc} 
+      \toprule 
+     Horizon(s)  & Cost & Courtesy & Confidence & Uniform & Online\\ 
+      \midrule 
+     0.1 & 0.00478 & 0.00466 & \textbf{0.00454} & 0.00478 & 0.00479 \\ 
+      \bottomrule 
+     \end{tabular} 
+      \caption{subtable1} 
+    \end{subtable}
+    \newline\newline\newline
+    \begin{subtable}[h]{\textwidth}
+    \centering
+     \label{tab:test}
+     \begin{tabular}{cccccc} 
+      \toprule 
+     Horizon(s)  & Cost & Courtesy & Confidence & Uniform & Online\\  
+      \midrule 
+     0.1 & 0.01466 & 0.01439 & 0.01443 & 0.01435 & \textbf{0.01418} \\ 
+      \bottomrule 
+     \end{tabular}
+    \caption{subtable2} 
+    \end{subtable}
+    \caption{The MSE between the ground-truth and generated trajectories under different policies}
+    \end{table}
