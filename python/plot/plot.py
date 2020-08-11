@@ -271,6 +271,7 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     plt.bar(scale_ls, val_ls)
     index_ls = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
     plt.xticks(scale_ls,index_ls)  ## 可以设置坐标字
+    ax.bar(val_ls, counts, color = (color1, color2, color3), edgecolor='black', linewidth=3)
 
 # 3d plot scatter
     import matplotlib.pyplot as plt 
