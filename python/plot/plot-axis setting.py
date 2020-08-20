@@ -23,7 +23,7 @@ import numpy as np
 
 # tick setting
     # axis, ticks
-    ax.set_xticks(position)  ## setting tick position
+    ax.(position)  ## setting tick position
     ax.set_xticklabels(label, fontsize=18)  ## setting tick labels and fontsize
     ax.tick_params(axis="y", labelsize=18)  # set fontsize only
     start, end = ax.get_xlim() 

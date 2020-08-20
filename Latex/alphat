@@ -1,0 +1,29 @@
+equation:
+    如果用 \begin{equation} 和 \end{equation}，则公式除了独占一行还会自动被添加序号， 
+    如何公式不想编号则使用 \begin{equation*} 和 \end{equation*}.
+
+$\phi$
+$$\phi$$
+
+上标：$\omega{^{k-1}}$
+下标：$\omega{_{k-1}}$
+
+花体：
+第一步导入包     \usepackage{mathrsfs}
+第二步是通过这个命令导入：$\mathscr{P}$ 或者 $\mathcal{X}$
+
+求和公式：
+$p = \sum\limits_{n=1}^Na_n$
+$p = \sum\nolimits_{n=1}^Na_n$
+
+加粗：
+文字：\textbf{}
+字母：
+    \boldsymbol w           # 不改变斜体
+    \mathbf w               # 改变斜体
+希腊字母：
+    \usepackage{bm}
+    \bm{}
+
+伪代码：
+https://blog.csdn.net/golden1314521/article/details/40923377

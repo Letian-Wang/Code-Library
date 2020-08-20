@@ -1,0 +1,20 @@
+Linear Regression:  
+    SS mean = Sum of Square 
+    Var mean = Sum of Square / N
+
+Newton Method: 
+    Zero point: X_t+1 = X_t - f(X_t) / f'(X_t)
+    Optimization: X_t+1 = X_t - f'(X_t) / f''(X_t)
+
+Gradient Descent
+    x = x - df(x,y)/dx * learning_rate
+    y = y - df(x,y)/dy * learning_rate
+    end when step is small, or the maximum step is reached
+    learning rate schedule: learning rate start largely initially, decrease as step goes
+
+Stochastic Gradient Descent:
+    choose a subset of data(mini) to do Gradient Desent
+    pro:
+        avoid slowness brought by redundancy of data, especially when data and parameter are large
+        faster, result in more table estimate in fewer step than Gradient Descent
+        continue when new data occur

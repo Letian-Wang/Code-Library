@@ -37,7 +37,16 @@ import numpy as np
 # for i in range(2):
 #     for j in range(3):
 #         ax[i, j].text(0.5, 0.5, str((i,j)), fontsize=18, ha='center')
+#         if i == len(ax) - 1:  
+#             ax[i, j].set_xlabel("column: {0:d}".format(j + 1))
+#         if j == 0:
+#             ax[i, j].set_ylabel("row: {0:d}".format(i + 1))
+## fig.text(0.5, 0.04, 'common X', ha='center')
+## fig.text(0.04, 0.5, 'common Y', va='center', rotation='vertical')
+# plt.xlabel("common X")
+# plt.ylabel("common Y")
 # plt.show()
+# https://stackoverflow.com/questions/16150819/common-xlabel-ylabel-for-matplotlib-subplots
 
 
 ''' plt.GridSpec: 更复杂的安排 '''

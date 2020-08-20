@@ -72,5 +72,7 @@
     import pandas as pd
     df = pd.DataFrame(list)
     writer = pd.ExcelWriter('new.xlsx', engine='xlsxwriter')
+    # writer = pd.ExcelWriter('new.xlsx', mode='a', engine='openpyxl')  # append mode
+    # df.to_excel(writer, sheet_name="name", startrow=num, startcol=num)    # position
     df.to_excel(writer,sheet_name='welcome',index=False)
     writer.save()

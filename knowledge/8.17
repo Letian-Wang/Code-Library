@@ -1,0 +1,58 @@
+Sampling:
+    pro: Easy, General
+    con: Slow, hard to get good sample, hard to assess
+
+Importance Sampling: E(f(x)) = 1/N * sum( f(x)*p(x)/q(x)), x~q(X)
+Sequential Importance Sampling      -- Condensation Filter
+    W(X_1:N) = p(X_1:N)/q(X_1:N) = p(X_1:N)*p(X_1:N-1) / (q(X_1:N|X_1:N-1) * q(X_1:N-1) * p(X_1:N-1)) = W(X_1:N-1) * p(X_1:N) / ((q(X_1:N|X_1:N-1) * p(X_1:N-1))
+    set q as p(x_N|x_N-1) rather than p(x_N|x_N-1, y_N) to avoid integrate, namely sample from p(x_N|x_N-1) (transition probability) to approximate p(y_N|x_N)p(x_N|x_N-1)
+Sequential Importance Resampling    -- Particle Filter: less assumption on model, higher computation
+    Add resampling, to get avoid particle degeneracy(sample impoverishment, particle degeneracy)
+
+Smirnov Transform (invertable cdf, uninvertable cdf)
+    To approximate sampling on a pdf, sample a uniform distribution and inverse with cdf
+
+Reject Sampling: pro: easy. con: hard to find proper q(x)
+    To approximate sampling on p(x), sample on q(x), accept the sample with probability (p(x)/q(x))
+
+Bayes Filter:
+    Prediction: P(X_t+1 | Y_1:t) = integrate( P(X_t+1|X_t)*P(X_t|Y_1:t) d(X_t))
+    Update: P(X_t+1 | Y_1:t) = P(Y_t|X_t+1)P(X_t+1|Y_1:t) / (Y_k|Y_1:k-1)
+            (Y_k|Y_1:k-1) = integrate( P(Y_t|X_t+1)P(X_t+1|Y_1:t) d(X_t+1) )
+
+Monte Carlo Approximation
+
+Marcov Chain: X_t = P*X_t-1
+    Converge: P is stochastic and regular(non-zero and positive element)
+    stable probability matrix: P-
+    stable distribution matrix: PX- = X-
+    Absorbing MM: one population absorbing everything (loyalty is 1)
+    Standard form: move absoring state in the front, to calculate the stable transition probability
+    More than one absorbing: The stable matrix depends on initial state.s
+
+Distribution: https://www.youtube.com/watch?v=bT1p5tJwn_0
+
+Bernoulli Distribution: P(X=x) = p^x * (1-p)^(1-x)
+Bimonial Distribution: Success number distribution of n indenpenden Bernoulli trials P(X=x) = n!/(n-m)!/m! * p^x * (1-p)^(1-x)
+Geometric Distribution: Distribution of number of trails to get the first success in indenpenden Bernoulli trials
+Negative Binomial: Distribution of number of trails to get the rth success in indenpenden Bernoulli trials
+
+Beta Distribution: theta~(0,1)
+    P(theta|a,b) = theta^(a-1)(1-theta)^(b-1) / B(a,b)
+    E(theta) = a/(a+b)
+
+Poisson Distribution: x >= 0, discrete
+    https://www.youtube.com/watch?v=jmqZG6roVqU
+    A poisson random variable is a count of the number of occurrences of an event in a given unit of time, distance, area, or volume.
+    requirement: 1. events are occurring independently. 2. The probability dosen't change (ranmdomly) 3. n is large 4. p is small
+    independent random discrete appearance
+    x ~ int
+    P(x) = lambda^x * e^(-lambda) / x!
+    mean = lambda
+    variance = lambda
+    when n -> infinity, p -> 0, np = constant, binomial distribution tend toward poisson distribution with lambda = np
+
+Gamma Distribution: y >= 0, continuous
+    P(y|alpha, beta) = beta^alpha/normalize * y^(alpha-1) * e^(-beta*y)
+    usaege: 1. prior for the average 2. prior for a precision
+    mean = alpha / beta
