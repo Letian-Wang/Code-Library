@@ -1,0 +1,15 @@
+一阶算法：求一次导
+二阶算法：求两次导  （Hessien阵计算困难，尤其是逆）
+逆二阶：用一阶信息逼近二阶算法，减少计算量
+
+iteration complexity：需要的iteration数量
+total(arithmetic) complexity: 从开始到收敛，所需要的所有的计算量
+
+
+
+norm: l1, l2, lp
+
+original miracles
+f(x) is convex
+    f(y) >= f(x) + df(x)/dx * (y-x), discrepency of left and right is called Bragman divergence
+

@@ -6,15 +6,49 @@ Newton Method:
     Zero point: X_t+1 = X_t - f(X_t) / f'(X_t)
     Optimization: X_t+1 = X_t - f'(X_t) / f''(X_t)
 
-Gradient Descent
+Gradient Descent: (batch/vanilla GD)
     x = x - df(x,y)/dx * learning_rate
     y = y - df(x,y)/dy * learning_rate
     end when step is small, or the maximum step is reached
     learning rate schedule: learning rate start largely initially, decrease as step goes
 
-Stochastic Gradient Descent:
-    choose a subset of data(mini) to do Gradient Desent
+Momentem Gradient Descent: 
+    link: https://www.youtube.com/watch?v=ewN0vFYFJ7A&list=PLyqSpQzTE6M9gCgajvQbc68Hk_JKGBAYT&index=37
+    Problem: slowness in flat region
+    Intuition: If I am repeadted being asked to move in the same direction, then I should probably gain some confidence and start taking bigger steps in that direction
+    Description: solve the slowness in flat region, by taking historical gradient into account.
+
+    equation:
+        update_t = gamma * update_t-1 + eta * f'(x_t)
+        x_t+1 = x_t - update_t
+
+    Expansion: the past gradient decays
+        update_0 = 0
+        update_1 = gamma * update_0 + eta * f'(x_1) = eta * f'(x_1)
+        update_2 = gamma * update_1 + eta * f'(x_2) = gamma * eta * f'(x_0) + eta * f'(x_2)
+        update_3 = gamma * update_2 + eta * f'(x_3) = gamma^2 * eta * f'(x_0) + gamma * eta * f'(x_2) + eta * f'(x_3)
+        update_4 = gamma * update_3 + eta * f'(x_4) = gamma^3 * eta * f'(x_0) + gamma^2 * eta * f'(x_2) + gamma * eta * f'(x_3) + eta * f'(x_4)
+
+    problem:
+        osscilation (u-turn caused by overshot) when close to maximum, but still much faster than Gradient Descent
+
+Nesterov Accelerated Gradient Descent: (NAG)
+    link: https://www.youtube.com/watch?v=sV9aiEsXanE&list=PLyqSpQzTE6M9gCgajvQbc68Hk_JKGBAYT&index=38
+    Problem: Osccilation
+    Intuition: look before you leap, since the move is seperated into 2 parts(1. history 2. Current descent)
+    pro: small ossilation
+
+    Equation:
+        x_lookahead = x_t - gamma * update_t-1
+        update_t = gamma * update_t-1 + eta * f'(x_lookahead)
+        x_t+1 = x_t - update_t
+
+Stochastic and Mini-Batch Gradient Descent:
+    problem: when data is large, it's slow to update once
+    intuition: use small data to approximate the origin data
+    choose one data(stochastic) or a subset of data(mini) to do Gradient Desent
     pro:
         avoid slowness brought by redundancy of data, especially when data and parameter are large
         faster, result in more table estimate in fewer step than Gradient Descent
-        continue when new data occur
+        easy to continue when new data occur
+        can be combined with momentem GD or NAG
