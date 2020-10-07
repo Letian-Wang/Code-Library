@@ -44,8 +44,10 @@ import numpy as np
     ax.minorticks_on()                  # Not display minor ticks on the axes.
 
 # label 
-    # space
+    # space 
     ax.set_xlabel('x', fontsize=30, fontname="Times New Roman", labelpad=15, fontweight='bold')
+    # rotate
+    ax.set_ylabel('abc', rotation=0, fontsize=20, labelpad=20, position=(-0.2,0.25))
     # color
     ax.yaxis.label.set_color('red')
     ax.xaxis.label.set_color('red')

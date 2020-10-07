@@ -1,0 +1,52 @@
+Sparse Solution:
+    TODO: https://medium.com/mlreview/l1-norm-regularization-and-sparsity-explained-for-dummies-5b0e4be3938a
+    arg min (f(x) + L1norm(x))
+    An x with small L1 norm tends to be a sparse solution. 
+    Being sparse means that the majority of x’s components (weights) are zeros, only few are non-zeros. 
+    And a sparse solution could avoid over-fitting.
+
+convex composite minimization:
+    min f(x) = g(x) + h(x), g is convex and L-smooth, h is convex but not smooth
+     x∈Rd
+
+constrained optimization problem can:
+    any convex optimization problem with constraint x ∈ C, it can reformulated  by defining h(x)= IC(x)
+    where IC(x) = 0 if x ∈ C or IC(x) = ∞ otherwise
+
+iteration complexity
+    TODO:The gradient descent algorithm has O(L/epsilong) iteration complexity for smooth convex minimization, 
+        which is improved to O((L/µ)log(1/epsilong)) when the function is µ- strongly (µ>0) convex [38].
+
+mirror descent
+linear coulpling
+
+norm ball constraint:
+    h(x) = I_{||x||1 ≤ r} (x), r ∈ R+
+non-euclidean norms
+
+sup: supremum, 最小上界
+inf: infimum, 最大上界
+
+
+f is called convex if:
+    ∀x1,x2∈X, ∀t∈[0,1]: f(t*x1+(1−t)*x2) ≤ t*f(x1) + (1−t)*f(x2)
+f is called strictly convex if:
+    ∀x1≠x2∈X, ∀t∈(0,1): f(t*x1+(1−t)*x2) < t*f(x1) + (1−t)*f(x2)
+A function ff is said to be (strictly) concave if −f-f is (strictly) convex.
+
+L-smooth: 
+    A function f is L-smooth with respect to || · ||, if it holds that
+    f(y) ≤ f(x) + <∇f(x), y−x> + L/2 ||y−x||_2, ∀x, y.
+
+µ-strongly convex: 
+    A function f is µ-strongly convex with respect to ? · ?, if it holds that
+    f(y) ≥ f(x) + <∇f(x), y−x> + u/2 ||y−x||_2, ∀x, y.
+
+Bregman divergence Vψ(y, x)： 
+    Let ψ : Q → R be a strictly convex and continuously differentiable function. Then, 
+    the Bregman divergence Vψ(y, x) is defined as
+    Vψ(y, x) = ψ(y) − ψ(x) − <∇ψ(x), y−x>, ∀x, y ∈ Q.
+
+µ-strongly convex: 
+    A function f is µ-strongly convex with respect to another convex and differentiable function ψ if
+    f(y) ≥ f(x) + <∇f(x), y − x> + µ V_ψ(y, x), ∀x, y.

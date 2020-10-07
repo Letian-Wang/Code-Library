@@ -273,6 +273,17 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     plt.xticks(scale_ls,index_ls)  ## 可以设置坐标字
     ax.bar(val_ls, counts, color = (color1, color2, color3), edgecolor='black', linewidth=3)
 
+    # 标注
+    rects = ax.bar(val_ls, counts)
+    def annotate(rects):
+        for rect in rects:
+            height = rect.get_height()
+            ax.annotate('{:03.1f}'.format(height),
+                        xy=(rect.get_x() + rect.get_width() / 2, height),
+                        xytext=(0, 3),  # 3 points vertical offset
+                        textcoords="offset points",
+                        ha='center', va='bottom', size = 50)
+
 # 3d plot scatter
     import matplotlib.pyplot as plt 
     from mpl_toolkits.mplot3d import Axes3D ## 3d plot

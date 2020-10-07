@@ -4,10 +4,11 @@ Sampling:
 
 Importance Sampling: E(f(x)) = 1/N * sum( f(x)*p(x)/q(x)), x~q(X)
 Sequential Importance Sampling      -- Condensation Filter
-    W(X_1:N) = p(X_1:N)/q(X_1:N) = p(X_1:N)*p(X_1:N-1) / (q(X_1:N|X_1:N-1) * q(X_1:N-1) * p(X_1:N-1)) = W(X_1:N-1) * p(X_1:N) / ((q(X_1:N|X_1:N-1) * p(X_1:N-1))
+    W(X_1:N) = p(X_1:N)/q(X_1:N) = p(X_1:N)*p(X_1:N-1) / (q(X_1:N|X_1:N-1) * q(X_1:N-1) * p(X_1:N-1)) = W(X_1:N-1) * p(X_1:N) / ((q(X_1:N|X_1:N-1) * p(X_1:N-1)) = (I added later with own understanding) W(X_1:N-1) * p(X_1:N) / (p(X_N|X_N-1) * p(X_1:N-1)) = W(X_1:N-1) * p(X_N|X_1:N-1, y_N) * p(X_1:N-1) / (p(X_N|X_N-1) * p(X_1:N-1)) = W(X_1:N-1) * p(X_N|X_1:N-1, y_N) / p(x_N|x_N-1), x~p(x_N|x_N-1)
     set q as p(x_N|x_N-1) rather than p(x_N|x_N-1, y_N) to avoid integrate, namely sample from p(x_N|x_N-1) (transition probability) to approximate p(y_N|x_N)p(x_N|x_N-1)
 Sequential Importance Resampling    -- Particle Filter: less assumption on model, higher computation
     Add resampling, to get avoid particle degeneracy(sample impoverishment, particle degeneracy)
+    After resample, the weights are equal
 
 Smirnov Transform (invertable cdf, uninvertable cdf)
     To approximate sampling on a pdf, sample a uniform distribution and inverse with cdf
@@ -17,8 +18,8 @@ Reject Sampling: pro: easy. con: hard to find proper q(x)
 
 Bayes Filter:
     Prediction: P(X_t+1 | Y_1:t) = integrate( P(X_t+1|X_t)*P(X_t|Y_1:t) d(X_t))
-    Update: P(X_t+1 | Y_1:t) = P(Y_t|X_t+1)P(X_t+1|Y_1:t) / (Y_k|Y_1:k-1)
-            (Y_k|Y_1:k-1) = integrate( P(Y_t|X_t+1)P(X_t+1|Y_1:t) d(X_t+1) )
+    Update: P(X_t+1 | Y_1:t) = P(Y_t+1|X_t+1)P(X_t+1|Y_1:t) / (Y_k|Y_1:k-1)
+            (Y_k|Y_1:k-1) = integrate( P(Y_t+1|X_t+1)P(X_t+1|Y_1:t) d(X_t+1) )
 
 Monte Carlo Approximation
 
@@ -33,7 +34,7 @@ Marcov Chain: X_t = P*X_t-1
 Distribution: https://www.youtube.com/watch?v=bT1p5tJwn_0
 
 Bernoulli Distribution: P(X=x) = p^x * (1-p)^(1-x)
-Bimonial Distribution: Success number distribution of n indenpenden Bernoulli trials P(X=x) = n!/(n-m)!/m! * p^x * (1-p)^(1-x)
+Binomial Distribution: Success number distribution of n indenpenden Bernoulli trials P(X=x) = n!/(n-m)!/m! * p^x * (1-p)^(1-x)
 Geometric Distribution: Distribution of number of trails to get the first success in indenpenden Bernoulli trials
 Negative Binomial: Distribution of number of trails to get the rth success in indenpenden Bernoulli trials
 

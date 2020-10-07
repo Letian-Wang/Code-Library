@@ -1,0 +1,64 @@
+Matrix:
+    https://www.cnblogs.com/marsggbo/p/10144060.html
+
+SemiDefinite Matrix:
+    https://www.cnblogs.com/marsggbo/p/10144060.html
+
+
+EE364a 1: Introduction
+General optimization problem: 
+    hard to solve
+    compromise: computation time, not always finding the solution(may not matter in practice)
+Exceptions:
+    least-squares problems: 
+        analytical solution
+    linear programming problems: 
+        no analytical solution
+        mature tech
+    convex optimization problems: 
+        no analytical solution  
+        alomost mature
+        many tricks for transforming into convex form
+        difficult to recognize, but could solve many problems
+
+EE364a 2: Convex sets
+    Affine set: contain line through any two distince points in the set
+    Convex set: contain line segment through any two distince points in the set
+
+    Convex Combination: points
+    Convex Hull: set of all Convex Combinations
+
+    Conic(nonnegtive) Combination
+    Convex Cone: set of all conic Combination
+
+    Hyperplanes: 正交
+    Halfspace
+
+    Euclidean Balls
+    Ellipsoids：(x - x_c)^T P^(-1) (x - x_c) <= 1
+
+    Norm Balls
+    Norm Cone
+
+    Polyhedra: intersection of finite number of halfspaces
+
+    Positive Semidefinite Cone
+
+    Operations that preserve convexity
+
+Operations that preserve convexity
+    1. apply definition
+    2. obtained from simple convex sets(hyperplanes, halfspaces, norm balls...) by operations:
+        intersection
+        affine functions
+        perspective fundtion
+        linear-fractional functions
+
+
+subgradient: gradient of nonsmooth function
+dual problem: 
+    find the best lower bound for the primal problem
+    Objective function -> Lagrangian(x, lambda, mu) -> Maximum (q(lambda, mu) = min(Lagrangian(x, lambda, mu))
+Stop criterial:
+    duality gap: faster than primal (common sense)  https://www.pythonf.cn/read/80133
+    gradient norm

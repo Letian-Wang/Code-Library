@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
-
+# color： http://www.peise.net/tools/web/
 def value_to_rgb(val, cmap_name):
     """ 
         Input：cmap_name, val range: [0,1]
