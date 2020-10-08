@@ -8,10 +8,9 @@ for i in range(1,10):
     im = plt.plot(np.linspace(0, i,10), np.linspace(0, np.random.randint(i),10))
     # 绘制散点图时，比较特殊需要调用findobj：im = plt.scatter(1,1).findobj()
     ims.append(im)
-ani = animation.ArtistAnimation(fig, ims, interval=500, repeat_delay=1000)
+ani = animation.ArtistAnimation(fig, ims, interval=2000, repeat_delay=1000)
 # ani.save("test.gif", writer='pillow')
-
 Writer = animation.writers['ffmpeg']  # 需安装ffmpeg
 writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+ani.save("ArtistAnimation.mp4",writer=writer)
 plt.show()
-ani.save("movie.mp4",writer=writer)

@@ -22,3 +22,6 @@ var = "This is a string"
 varName = 'var'
 s= locals()[varName]
 
+# rename a file:
+    os.rename(r'old_file', r'new_file')
+
