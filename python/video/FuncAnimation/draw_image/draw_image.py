@@ -24,4 +24,5 @@ def animate(i):
     return imgs
 
 anim = animation.FuncAnimation(fig, animate, frames=20, interval=500, blit=True)
+anim.save('draw_image.mp4', writer = 'ffmpeg', fps = 30) 
 plt.show()

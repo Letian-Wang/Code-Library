@@ -228,6 +228,7 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     patches = [ mpatches.Patch(color=color[i], label="{:s}".format(labels[i]) ) for i in range(len(color)) ] 
     ax=plt.gca()
     ax.legend(handles=patches, loc=1, bbox_to_anchor=(1.008,1.1), ncol=1) #生成legend
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05), ncol=3, fancybox=True, shadow=True)
 
 # class plot
     fig = plt.figure()
@@ -379,3 +380,6 @@ color map : https://matplotlib.org/tutorials/colors/colormaps.html
     ax.set_ylabel('y-label')
     ax.set_zlabel('z-label')
     plt.show()
+
+# log plot
+plt.semilogx(np.array(learning_rates), train_error.numpy(), label='training cost')

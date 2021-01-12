@@ -1,0 +1,7 @@
+https://blog.csdn.net/lanchunhui/article/details/62417314
+
+pip install virtualenv  # 下载virtualenv
+virtualenv --version    # 查看环境
+virtualenv venv     #创建 venv环境
+ven\Scripts\activate    # 进入venv环境
+deactivate      # 推出venv环境

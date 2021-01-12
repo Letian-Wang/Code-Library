@@ -11,6 +11,7 @@ git checkout -b <branch_name>               # create new branch and checkout to 
 git branch -f master HEAD~3                 # Forcely change the branch position 
 git branch -f master hashi~3                # Forcely change the branch position 
 git branch -f master branch_name~3          # Forcely change the branch position 
+git branch -d <local-branch>                # delete local branch
 
 # 合并： 
 # merge 体现出提交历史，但是略显混乱， # push以后，保存了本地记录
@@ -86,3 +87,8 @@ git reset --mixed HEAD^                     # 不删除工作空间改动代码�
 git reset --soft HEAD^                      # 不删除工作空间改动代码，撤销commit，不撤销git add .
 git reset --hard HEAD^                      # 删除工作空间改动代码，撤销commit，撤销git add . 
 git commit --amend -m "----"                # 修改最近一次commit的内容  
+
+
+for a new project:
+git branch -a
+git checkout -t remotes/repo/branch
