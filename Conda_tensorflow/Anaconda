@@ -13,8 +13,6 @@ Python train.py
 Conda install matplotlib
 Conda install scikit-learn
 
-
-
 Conda unsintall tensorflow-gpu
 Conda install cudatoolkit=9.2
 

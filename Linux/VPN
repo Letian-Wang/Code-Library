@@ -1,0 +1,17 @@
+install v2ray on linux:
+    https://github.com/dreamrover/v2ray-deb
+
+Command to manipulate v2ray:
+    https://www.wandouip.com/t5i197953/
+        sudo systemctl  start  v2ray   #启动v2ray
+        sudo systemctl  status v2ray   #查看v2ray状态 
+        sudo systemctl  stop   v2ray   #停止v2ray
+        
+Understanding v2ray:
+    https://www.atzlinux.com/doc/v/v2ray/chapter_00/start.html
+
+Configure v2ray:
+    https://my.oschina.net/u/4437065/blog/3153449
+
+install packages over the wall on tsinghua source
+    https://www.codenong.com/cs106976123/
