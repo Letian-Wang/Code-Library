@@ -1,17 +1,26 @@
 install v2ray on linux:
     https://github.com/dreamrover/v2ray-deb
 
+Configure v2ray:
+    https://my.oschina.net/u/4437065/blog/3153449
+
+Quick guide: 
+    1. 系统设置中，网络，代理，设为手动
+    2. 启动v2ray: sudo systemctl  start  v2ray
+
 Command to manipulate v2ray:
     https://www.wandouip.com/t5i197953/
         sudo systemctl  start  v2ray   #启动v2ray
         sudo systemctl  status v2ray   #查看v2ray状态 
         sudo systemctl  stop   v2ray   #停止v2ray
-        
-Understanding v2ray:
-    https://www.atzlinux.com/doc/v/v2ray/chapter_00/start.html
 
-Configure v2ray:
-    https://my.oschina.net/u/4437065/blog/3153449
+Understanding v2ray:
+    需要一台在国外的服务器，与本机之间通过vmess协议对信息进行加密，以实现信息的跨国传递
+        服务器：需要端口，对应的id密码
+        客户端：需要服务器的地址，发送端口， 以及对应的id密码，接受端口
+        本地网络设置：需要设置端口与客户端的接受端口一致
+    https://www.atzlinux.com/doc/v/v2ray/chapter_00/start.html
+    https://toutyrater.github.io/
 
 install packages over the wall on tsinghua source
     https://www.codenong.com/cs106976123/
