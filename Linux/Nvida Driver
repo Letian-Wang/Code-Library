@@ -1,0 +1,35 @@
+install nvidia driver:
+    recommended version:
+        sudo ubuntu-drivers autoinstall
+    specific version:
+        basic procedure
+            https://www.cnblogs.com/luofeel/p/8654964.html
+        detailed procedure
+            https://blog.csdn.net/choimroc/article/details/104630491
+
+Knowledge:
+    X server: linux上的图形程序
+    lightdm, gdm: X server 的管理程序
+
+    ctrl + alt + F1: 命令界面
+    ctrl + alt + F1: 图形界面
+
+trouble shooting:
+    error1: Black screen showing "dev/sda1: clean, 552599/6111232 files, 7119295/24414464 blocks"
+    error2: Error message “The system is running in low-graphics mode”
+    reason: unproper NVIDIA driver, need to reinstall
+    solution:
+        sudo apt-get purge nvidia*
+        sudo ubuntu-drivers autoinstall
+
+        https://askubuntu.com/questions/882385/dev-sda1-clean-this-message-appears-after-i-startup-my-laptop-then-it-w
+
+
+pytorch: install driver, then choose cuda version, then install pytorch
+    Error message:"The NVIDIA driver on your system is too old (found version 8000)."
+        reason: compatibility of cuda and driver
+        solution: https://www.zhihu.com/question/309583980
+
+
+
+

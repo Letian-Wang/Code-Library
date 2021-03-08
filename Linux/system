@@ -1,0 +1,9 @@
+Error: bitlocker on driver:
+Reason: when boot setting is changed, the driver may be locked
+Solution:
+    1. go to the BIOS, set the setting as before
+    2. if do not remember the setting,
+            go to MicroSoft to look for the bitlocker code, unlock the driver and it will goes fine
+            Save current BIOS setting as custom setting, so that we only need to reset to custom setting in the future
+
+
